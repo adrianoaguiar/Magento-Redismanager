@@ -30,7 +30,11 @@
         <models>
             <redismanager>
                 <class>Steverobbins_Redismanager_Model</class>
+                <resourceModel>redismanager_resource</resourceModel>
             </redismanager>
+            <redismanager_resource>
+                <class>Steverobbins_Redismanager_Model_Resource</class>
+            </redismanager_resource>
         </models>
     </global>
     <admin>

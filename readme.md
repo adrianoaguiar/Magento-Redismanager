@@ -22,7 +22,7 @@ Utility for managing Redis services
 
 ---
 
-![View Keys](http://i.imgur.com/VGjLgGE.png)
+![View Keys](http://i.imgur.com/KnUjsJb.png)
 
 # Installation
 

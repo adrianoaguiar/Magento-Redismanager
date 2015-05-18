@@ -10,78 +10,17 @@
  */
 
 class Steverobbins_Redismanager_Block_Adminhtml_Keys
-    extends Mage_Adminhtml_Block_Template
+    extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
     /**
-     * @var Steverobbins_Redismanager_Helper_Data
+     * Initialize grid
      */
-    protected $_helper;
-
-    /**
-     * @var array
-     */
-    protected $_service;
-
-    /**
-     * Get all keys for client
-     * 
-     * @return array
-     */
-    public function getKeys()
+    public function __construct()
     {
-        $service = $this->_getService();
-        $keys = $this->_getHelper()->getRedisInstance(
-            $service['host'],
-            $service['port'],
-            $service['password'],
-            $service['db']
-        )
-        ->getRedis()
-        ->keys('*');
-        sort($keys);
-        return $keys;
-    }
-
-    /**
-     * Get service name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        $service = $this->_getService();
-        return $service['name'];
-    }
-
-    /**
-     * Get service array
-     *
-     * @return array
-     */
-    protected function _getService()
-    {
-        if (is_null($this->_service)) {
-            $id       = $this->getRequest()->getParam('id');
-            $services = $this->_getHelper()->getServices();
-            if (isset($services[$id])) {
-                $this->_service = $services[$id];
-            } else {
-                $this->_service = array();
-            }
-        }
-        return $this->_service;
-    }
-
-    /**
-     * Get helper
-     *
-     * @return Steverobbins_Redismanager_Helper_Data
-     */
-    protected function _getHelper()
-    {
-        if (is_null($this->_helper)) {
-            $this->_helper = $this->helper('redismanager');
-        }
-        return $this->_helper;
+        $this->_controller = 'adminhtml_keys';
+        $this->_blockGroup = 'redismanager';
+        $this->_headerText = Mage::helper('redismanager')->__('View Keys');
+        parent::__construct();
+        $this->removeButton('add');
     }
 }

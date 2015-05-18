@@ -25,7 +25,7 @@
             <action method="addCss"><stylesheet>steverobbins/redismanager/redismanager.css</stylesheet></action>
         </reference>
         <reference name="content">
-            <block type="redismanager/adminhtml_keys" name="redismanager.keys" template="steverobbins/redismanager/keys.phtml">
+            <block type="redismanager/adminhtml_keys" name="redismanager.keys">
             </block>
         </reference>
     </adminhtml_redismanager_keys>
